@@ -1,0 +1,13 @@
+{
+  "id": "da3d502a-79f2-4116-b6ec-e4602d558675",
+  "name": "My ELGE Game",
+  "description": "A game built with the ELGE editor.",
+  "files": {
+    "game.js": "import { Player } from \"./player.js\";\n\nconst player = new Player();\nconsole.log(\"Game started\", player);",
+    "player.js": "export class Player {\n  constructor() {\n    this.position = { x: 0, y: 0.5, z: 0 };\n    this.color = \"#00ff88\";\n    this.scale = 1;\n  }\n}",
+    "script.js": "// Script window: write automation or helper logic here\nconsole.log(\"Script ready\");"
+  },
+  "script": "// Script window: write automation or helper logic here\nconsole.log(\"Script ready\");",
+  "createdAt": 1776257307046,
+  "author": "editor-user"
+}
