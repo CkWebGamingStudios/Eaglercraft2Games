@@ -1,0 +1,13 @@
+{
+  "id": "4f00ce67-94e8-4e83-a646-2c63653c3a07",
+  "name": "Eaglercraft 1.21.2",
+  "description": "A game built with the ELGE editor.",
+  "files": {
+    "game.js": "import { Player } from \"./player.js\";\n\nconst player = new Player();\nconsole.log(\"Game started\", player);",
+    "player.js": "export class Player {\n  constructor() {\n    this.position = { x: 0, y: 0.5, z: 0 };\n    this.velocity = { x: 0, y: 0, z: 0 };\n\n    this.color = \"#00ff88\";\n    this.scale = 1;\n\n    this.speed = 5;\n    this.jumpPower = 8;\n    this.gravity = 20;\n\n    this.health = 20;\n    this.onGround = false;\n  }\n\n  update(deltaTime, input) {\n    // Movement\n    if (input.forward) this.velocity.z = -this.speed;\n    else if (input.back) this.velocity.z = this.speed;\n    else this.velocity.z = 0;\n\n    if (input.left) this.velocity.x = -this.speed;\n    else if (input.right) this.velocity.x = this.speed;\n    else this.velocity.x = 0;\n\n    // Gravity\n    this.velocity.y -= this.gravity * deltaTime;\n\n    // Jump\n    if (input.jump && this.onGround) {\n      this.velocity.y = this.jumpPower;\n      this.onGround = false;\n    }\n\n    // Apply velocity\n    this.position.x += this.velocity.x * deltaTime;\n    this.position.y += this.velocity.y * deltaTime;\n    this.position.z += this.velocity.z * deltaTime;\n\n    // Simple ground collision\n    if (this.position.y < 0.5) {\n      this.position.y = 0.5;\n      this.velocity.y = 0;\n      this.onGround = true;\n    }\n  }\n}",
+    "script.js": "// Script window: write automation or helper logic here\nconsole.log(\"Script ready\");"
+  },
+  "script": "import { Player } from \"./Player.js\";\n\nconst player = new Player();\n\nconsole.log(\"Eaglercraft 26.2 starting...\");\nconsole.log(\"Player:\", player);\n\nfunction gameLoop() {\n  console.log(player.position);\n  requestAnimationFrame(gameLoop);\n}\n\ngameLoop();",
+  "createdAt": 1788907276676,
+  "author": "editor-user"
+}
